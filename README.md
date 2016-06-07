@@ -24,7 +24,9 @@ Python Code Conventions
 
 - Imports should be on separate lines. 
 
-- TODOs should include the string TODO in all caps, followed by your username in parentheses: TODO(username): # TODO(someuser): Use a "*" here for concatenation operator.
+- TODOs should include the string TODO in all caps, followed by your username in parentheses: TODO(username): 
+	
+	# TODO(someuser): Use a "*" here for concatenation operator.
 
 - If a class inherits from no other base classes, explicitly inherit from object. This also applies to nested classes.
 
@@ -34,7 +36,11 @@ Python Code Conventions
 
 - Use CapWords for class names, but lower_with_under.py for module names. 
 
-- Every Python source file should be importable. Your code should always check if __name__ == '__main__': before executing your main program so that the main program is not executed when the module is imported. All code at the top level will be executed when the module is imported. Be careful not to call functions, create objects, or perform other operations that should not be executed when the file is imported.
+- Every Python source file should be importable. Your code should always check 
+	
+	if __name__ == '__main__': 
+	
+	before executing your main program so that the main program is not executed when the module is imported. All code at the top level will be executed when the module is imported. Be careful not to call functions, create objects, or perform other operations that should not be executed when the file is imported.
 
 - Indent your code blocks with 2 spaces. Never use tabs or mix tabs and spaces.
 
