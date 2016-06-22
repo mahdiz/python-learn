@@ -108,6 +108,9 @@ def lists_example():
     del a[3]
     del a[1:4]  # Delete a range
 
+    x = a  # Shallow copy
+    x = list(a)  # Deep copy (new list)
+
     # Reverse a list
     print list(reversed(a))    # NOTE: reversed returns an iterator of the reversed list. Use list() to get the list
 
@@ -151,20 +154,20 @@ def matrix_example():
 
 
 def dictionary_example():
-    D = {}      # Empty dictionary
-    D['a'] = 1
-    D['b'] = 2
-    D['c'] = 3
+    d = {'a': 1, 'b': 2, 'c': 3}
 
-    print D
+    d = {}  # Empty dictionary
+    d['a'] = 1
+    d['b'] = 2
+    d['c'] = 3
 
-    for k in D.keys():
-        print k, '->', D[k]
+    for k in d.keys():
+        print k, '->', d[k]
 
-    for v in D.values():
+    for v in d.values():
         print v
 
-    for k,v in D.items():
+    for k, v in d.items():
         print k, '->', v
 
 
