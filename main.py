@@ -1,9 +1,20 @@
 # Run with Python 2.x
-# Python basic types: int, str
+# Python basic types: int, long, float, str, boolean, byte, tuple
+
+from collections import deque
 
 def input_example():
-    i = int(raw_input("Type an integer: "))                    # Reading an int
+    # Reading an int
+    i = int(raw_input("Type an integer: "))
     print i + 1
+
+    # Reading two (or more) ints in one line. Note: (1,2) is a "tuple"
+    v, e = (int(x) for x in raw_input("Type two integers: ").strip().split())
+    print v, e
+
+    # Reading a tuple (explicit cast is needed because the comprehension returns an iterable)
+    t = tuple(int(x) for x in raw_input("Type two integers: ").strip().split())
+    print t[0]  # Tuples are indexed similar to lists
 
     print raw_input().strip()       # Remove heading and trailing whitespaces
     print raw_input().strip('.')    # Remove heading and trailing dots
@@ -14,6 +25,7 @@ def input_example():
     arr = map(int, raw_input('Type a space-separated list of ints: ').split(' '))  # Reading a space-separated int list
     arr.sort()
     print arr
+
 
 def if_example():
     a = [int(i) for i in raw_input().strip().split()]
@@ -29,7 +41,10 @@ def if_example():
 
 
 def loop_example():
-    for x in range(1, 11):
+    for x in range(5):  # By default, range starts at 0
+        print x
+
+    for x in range(1, 5):  # Start at 1
         print x
 
     # Iterating over a string
@@ -62,7 +77,9 @@ def string_example():
     x = "0023.57000"
     print x.strip('0')
 
-    # print('We are the {} who say "{}!"'.format('knights', 'Ni'))
+    # Convert an int list to a space-separated string of int elements
+    a = [1, 2, 3, 4, 5]
+    print ' '.join(map(str, a))  # Prints '1 2 3 4 5'
 
 
 def lambda_example():
@@ -77,6 +94,19 @@ def lists_example():
     print map(lambda x: x**2, a)            # Using map
     print map(lambda x, y: x+y, a, b)        # Map over two arrays
     print map(int, ['56', '3', '14'])        # Map cast
+
+    # Append to a list
+    a.append(15)
+
+    # Append multiple elements to a list (append from an iterable)
+    a.extend([9, 4, 6, 7])
+
+    # Delete an element from a list
+    a.remove(15)
+
+    # Delete an element from a list using the index
+    del a[3]
+    del a[1:4]  # Delete a range
 
     # Reverse a list
     print list(reversed(a))    # NOTE: reversed returns an iterator of the reversed list. Use list() to get the list
@@ -100,6 +130,26 @@ def lists_example():
     print zip(firsts, seconds)
 
 
+def data_structures_example():
+    # Stacks are implemented using lists
+    stack = [3, 4, 5]
+    stack.append(6)  # Stack push
+    print stack.pop()  # Stack pop
+
+    # Stacks are implemented using deque (note: list doesn't have popleft() so we should the deque collection)
+    queue = deque([1, 2, 3])
+    queue.append(4)  # Queue enqueue
+    print queue.popleft()  # Queue deque
+
+
+def matrix_example():
+    A = [[1, 2], [3, 4]]
+    print A
+
+    M = [[0 for j in range(3)] for i in range(4)]  # Creates a 4x3 matrix using list comprehension
+    print M
+
+
 def dictionary_example():
     D = {}      # Empty dictionary
     D['a'] = 1
@@ -118,5 +168,15 @@ def dictionary_example():
         print k, '->', v
 
 
+# Kadane's algorithm
+def max_subarray(a):
+    n = len(a)
+    maxSoFar = [0 for i in range(n)]
+    for i in range(n):
+        maxSoFar[i] = max(a[i], maxSoFar[i - 1] + a[i])
+
+    return max(maxSoFar)
+
+
 if __name__ == '__main__':
-    if_example()
+    data_structures_example()
