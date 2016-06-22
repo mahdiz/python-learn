@@ -1,5 +1,6 @@
 # Run with Python 2.x
-# Python basic types: int, long, float, str, boolean, byte, tuple
+# Python basic types: int, long, float, str, boolean, byte, list, tuple, set
+# Lists are mutable and tuples are immutable.
 
 from collections import deque
 
@@ -136,7 +137,7 @@ def data_structures_example():
     stack.append(6)  # Stack push
     print stack.pop()  # Stack pop
 
-    # Stacks are implemented using deque (note: list doesn't have popleft() so we should the deque collection)
+    # Queues are implemented using deque (note: list doesn't have popleft() so we should the deque collection)
     queue = deque([1, 2, 3])
     queue.append(4)  # Queue enqueue
     print queue.popleft()  # Queue deque
