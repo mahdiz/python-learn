@@ -29,12 +29,14 @@ def input_example():
 
 
 def if_example():
-    a = [int(i) for i in raw_input().strip().split()]
+    a = [int(i) for i in raw_input("Enter some integers: ").strip().split()]
 
     if a[0] > 0:
         print "First is positive."
     elif a[0] == 0:                     # Note elif
         print "First is zero."
+    elif a[0] != -65:
+        print "First is not -65."
     elif a[0] % 2 == 0 and a[1] > 0 or a[2] < 0:         # Note 'and', 'or'
         print "Complicated :)"
     else:
@@ -77,6 +79,10 @@ def string_example():
     print x.strip()
     x = "0023.57000"
     print x.strip('0')
+
+    # String concatenation
+    s = "mahdi" + " zamani"
+    print s + str(123)      # Concat with an integer
 
     # Convert an int list to a space-separated string of int elements
     a = [1, 2, 3, 4, 5]
@@ -157,17 +163,26 @@ def matrix_example():
 def dictionary_example():
     d = {'a': 1, 'b': 2, 'c': 3}
 
-    d = {}  # Empty dictionary
+    d = {}          # Empty dictionary
     d['a'] = 1
     d['b'] = 2
     d['c'] = 3
 
+    # Check if a key exists in the dictionary
+    if 'b' in d:
+        print "'b' has value " + str(d['b'])
+    else:
+        print "'b' not found in the dictionary!"
+
+    # Enumerate dictionary keys
     for k in d.keys():
         print k, '->', d[k]
 
+    # Enumerate dictionary values
     for v in d.values():
         print v
 
+    # Enumerate dictionary items
     for k, v in d.items():
         print k, '->', v
 
@@ -183,4 +198,4 @@ def max_subarray(a):
 
 
 if __name__ == '__main__':
-    data_structures_example()
+    if_example()
